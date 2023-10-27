@@ -1,5 +1,3 @@
-// Adding an extra comment so I can see if my new repo is working correctly...
-
 // Import the necessary React functions, axios, and the two child components.
 import { useState, useEffect } from "react";
 import axios from "axios";
