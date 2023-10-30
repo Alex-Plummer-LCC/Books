@@ -1,12 +1,8 @@
 {
   "books": [
     {
-      "title": "A Firefox Book",
+      "title": "A book",
       "id": 1
-    },
-    {
-      "title": "Another Firefox Book",
-      "id": 2
     }
   ]
 }
