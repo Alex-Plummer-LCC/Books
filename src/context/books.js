@@ -13,7 +13,7 @@ function Provider({ children }) {
     // fetchBooks will get the books from json-server (using a GET request through axios) and update the books state variable appropriately.
     // Wrap the fetchBooks function in useCallback to ensure that the useEffect function (in App.js) knows that fetchBooks shouldn't change when rerendering.
     const fetchBooks = useCallback(async () => {
-        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/books`); // Wait for a response from json-server to come back before setting the books.
+        const response = await axios.get(`http://citweb.lanecc.net:5023/books`); // Wait for a response from json-server to come back before setting the books.
 
         setBooks(response.data);
     }, []);
@@ -21,7 +21,7 @@ function Provider({ children }) {
     
     // editBookById will use axios to edit a book's title, then update the books state variable appropriately.
     const editBookById = async (id, newTitle) => {
-        const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/books/${id}`, { // Use async/await and template literal syntax to make a PUT request to json-server.
+        const response = await axios.put(`http://citweb.lanecc.net:5023/books/${id}`, { // Use async/await and template literal syntax to make a PUT request to json-server.
             title: newTitle, // Add an object containing the newTitle as an argument within the request.
         });
 
@@ -44,7 +44,7 @@ function Provider({ children }) {
 
     // deleteBookById will delete a book, given its id, then update the books state variable appropriately.
     const deleteBookById = async (id) => {
-        await axios.delete(`${process.env.REACT_APP_SERVER_URL}/books/${id}`); // Use similar syntax to line 24 to make a DELETE request to json-server.
+        await axios.delete(`http://citweb.lanecc.net:5023/books/${id}`); // Use similar syntax to line 24 to make a DELETE request to json-server.
 
         // filter will return only the elements in the array that pass a certain condition.
         const updatedBooks = books.filter((book) => {
@@ -57,7 +57,7 @@ function Provider({ children }) {
     // This function will add a new book to the books array.
     const createBook = async (title) => {
         // Make a POST request to json-sever (and wait for it) that adds a new book with the title the user wants.
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/books`, {
+        const response = await axios.post(`http://citweb.lanecc.net:5023/books`, {
             title
         });
 
